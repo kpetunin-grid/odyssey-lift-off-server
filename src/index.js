@@ -1,4 +1,4 @@
-import { ApolloServer, InMemoryCache } from 'apollo-server';
+import { ApolloServer } from 'apollo-server';
 import { TrackAPI } from './datasources/track-api.js';
 import { resolvers } from './resolvers.js';
 import { typeDefs } from './schema.js';
@@ -7,8 +7,6 @@ const DEFAULT_PORT = 4000;
 
 const startApolloServer = async (typeDefs, resolvers) => {
 	const server = new ApolloServer({
-		uri: 'https://server-catstronauts.herokuapp.com/',
-		cache: new InMemoryCache(),
 		typeDefs,
 		resolvers,
 		dataSources: () => {
